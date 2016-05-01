@@ -1,0 +1,191 @@
+[{
+	"id": "cbb70ae5.e58548",
+	"type": "subflow",
+	"name": "fhem in",
+	"info": "Provides an input for JSON strings received from fhem.",
+	"in": [],
+	"out": [{
+		"x": 600,
+		"y": 120,
+		"wires": [{
+			"id": "e90484da.8ba0d8",
+			"port": 0
+		}]
+	}]
+}, {
+	"id": "382dbf1d.301ed",
+	"type": "http response",
+	"z": "cbb70ae5.e58548",
+	"name": "http out",
+	"x": 500,
+	"y": 60,
+	"wires": []
+}, {
+	"id": "d722a91f.82b018",
+	"type": "http in",
+	"z": "cbb70ae5.e58548",
+	"name": "http in",
+	"url": "/fhem",
+	"method": "post",
+	"swaggerDoc": "",
+	"x": 70,
+	"y": 60,
+	"wires": [
+		["4efca0d8.170bf", "2f7bf859.1e1a88"]
+	]
+}, {
+	"id": "2f7bf859.1e1a88",
+	"type": "template",
+	"z": "cbb70ae5.e58548",
+	"name": "Page Template",
+	"field": "",
+	"fieldType": "msg",
+	"syntax": "mustache",
+	"template": "{'ack': true}\n",
+	"x": 300,
+	"y": 60,
+	"wires": [
+		["382dbf1d.301ed"]
+	]
+}, {
+	"id": "e90484da.8ba0d8",
+	"type": "function",
+	"z": "cbb70ae5.e58548",
+	"name": "extract req.body",
+	"func": "return msg.req.body;",
+	"outputs": 1,
+	"noerr": 0,
+	"x": 380,
+	"y": 120,
+	"wires": [
+		[]
+	]
+}, {
+	"id": "4efca0d8.170bf",
+	"type": "json",
+	"z": "cbb70ae5.e58548",
+	"name": "",
+	"x": 230,
+	"y": 120,
+	"wires": [
+		["e90484da.8ba0d8"]
+	]
+}, {
+	"id": "5697eef3.de1c2",
+	"type": "http request",
+	"z": "f7486820.464d08",
+	"name": "",
+	"method": "GET",
+	"ret": "txt",
+	"url": "",
+	"x": 430,
+	"y": 1380,
+	"wires": [
+		["fe98abaf.5b0348"]
+	]
+}, {
+	"id": "7ae085ac.e6073c",
+	"type": "inject",
+	"z": "f7486820.464d08",
+	"name": "get",
+	"topic": "",
+	"payload": "",
+	"payloadType": "date",
+	"repeat": "",
+	"crontab": "",
+	"once": false,
+	"x": 90,
+	"y": 1380,
+	"wires": [
+		["aee423d0.dd2f7"]
+	]
+}, {
+	"id": "aee423d0.dd2f7",
+	"type": "function",
+	"z": "f7486820.464d08",
+	"name": "get",
+	"func": "var r_msg = {};\nvar ip = \"192.168.0.30:8083\";\nvar cmd = \"{ReadingsVal('hello_button','state','')}\";\nr_msg.url = \"http://\" + ip + \"/fhem?cmd=\" + cmd + \"&XHR=1\";\nreturn r_msg;",
+	"outputs": 1,
+	"noerr": 0,
+	"x": 250,
+	"y": 1380,
+	"wires": [
+		["5697eef3.de1c2"]
+	]
+}, {
+	"id": "fe98abaf.5b0348",
+	"type": "debug",
+	"z": "f7486820.464d08",
+	"name": "",
+	"active": true,
+	"console": "false",
+	"complete": "payload",
+	"x": 590,
+	"y": 1380,
+	"wires": []
+}, {
+	"id": "62aeb61a.794dd8",
+	"type": "inject",
+	"z": "f7486820.464d08",
+	"name": "",
+	"topic": "",
+	"payload": "on",
+	"payloadType": "str",
+	"repeat": "",
+	"crontab": "",
+	"once": false,
+	"x": 90,
+	"y": 1460,
+	"wires": [
+		["ba9a385b.ddf458"]
+	]
+}, {
+	"id": "ba9a385b.ddf458",
+	"type": "function",
+	"z": "f7486820.464d08",
+	"name": "set",
+	"func": "var r_msg = {};\nvar ip = \"192.168.0.30:8083\";\nvar cmd = \"set hello_button \" + msg.payload;\nr_msg.url = \"http://\" + ip + \"/fhem?cmd=\" + cmd + \"&XHR=1\";\n\nif (msg.payload === \"on\") {\n    node.status({fill:\"yellow\",shape:\"dot\",text:\"on\"});\n} else if (msg.payload === \"off\") {\n    node.status({fill:\"grey\",shape:\"dot\",text:\"off\"});\n}\n\nreturn r_msg;",
+	"outputs": 1,
+	"noerr": 0,
+	"x": 250,
+	"y": 1480,
+	"wires": [
+		["5697eef3.de1c2"]
+	]
+}, {
+	"id": "4bc7ab55.2b0a94",
+	"type": "inject",
+	"z": "f7486820.464d08",
+	"name": "",
+	"topic": "",
+	"payload": "off",
+	"payloadType": "str",
+	"repeat": "",
+	"crontab": "",
+	"once": false,
+	"x": 90,
+	"y": 1500,
+	"wires": [
+		["ba9a385b.ddf458"]
+	]
+}, {
+	"id": "b27723f5.712ce",
+	"type": "subflow:cbb70ae5.e58548",
+	"z": "f7486820.464d08",
+	"x": 70,
+	"y": 1300,
+	"wires": [
+		["87bbefcf.776d1"]
+	]
+}, {
+	"id": "87bbefcf.776d1",
+	"type": "debug",
+	"z": "f7486820.464d08",
+	"name": "",
+	"active": true,
+	"console": "false",
+	"complete": "false",
+	"x": 270,
+	"y": 1300,
+	"wires": []
+}]
