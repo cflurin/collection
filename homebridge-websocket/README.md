@@ -8,7 +8,7 @@
 
 **How to use:**
 
-Import the [example-flow](https://github.com/cflurin/collection/blob/master/homebridge-websocket/example-flow) into node-red.
+Import the [example-flow](https://github.com/cflurin/collection/blob/master/homebridge-websocket/example-flow.json) into node-red.
 Press the button on the left side of the inject nodes to add/set the office_lamp. The messages received from homebridge-websocket are displayed on the debug tab.
 
 The websocket node is defined as websocket-client:

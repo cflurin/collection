@@ -27,7 +27,7 @@ The payload in this example is based on the HomeKit specs. But you can change th
 
 **How to use:**
 
-Import the [example-flow](https://github.com/cflurin/collection/blob/master/fhem%3C-%3Enode-red/example-flow) into node-red, the sub-flow `fhem in` will be also created.
+Import the [example-flow](https://github.com/cflurin/collection/blob/master/fhem%3C-%3Enode-red/example-flow.json) into node-red, the sub-flow `fhem in` will be also created.
 
 
 ![example-flow](https://cloud.githubusercontent.com/assets/5056710/14916059/8f68e8b2-0e17-11e6-861a-7eea9bd9e84b.png)
