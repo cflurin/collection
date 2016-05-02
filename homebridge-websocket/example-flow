@@ -1,1 +1,115 @@
-coming soon ...
+[{
+	"id": "bce18e21.8c5a8",
+	"type": "websocket-client",
+	"z": "f7486820.464d08",
+	"path": "ws://192.168.0.30:4050",
+	"wholemsg": "true"
+}, {
+	"id": "7c6ccec4.fb226",
+	"type": "websocket in",
+	"z": "f7486820.464d08",
+	"name": "",
+	"server": "",
+	"client": "bce18e21.8c5a8",
+	"x": 140,
+	"y": 1440,
+	"wires": [
+		["82920671.1b7ec8"]
+	]
+}, {
+	"id": "ccfe462a.d046e8",
+	"type": "websocket out",
+	"z": "f7486820.464d08",
+	"name": "",
+	"server": "",
+	"client": "bce18e21.8c5a8",
+	"x": 520,
+	"y": 1560,
+	"wires": []
+}, {
+	"id": "82920671.1b7ec8",
+	"type": "debug",
+	"z": "f7486820.464d08",
+	"name": "",
+	"active": true,
+	"console": "false",
+	"complete": "false",
+	"x": 470,
+	"y": 1440,
+	"wires": []
+}, {
+	"id": "74c12eb7.7d32b",
+	"type": "inject",
+	"z": "f7486820.464d08",
+	"name": "add office_lamp",
+	"topic": "add",
+	"payload": "{\"name\": \"office_lamp\", \"service\": \"Lightbulb\", \"Brightness\": \"default\"}",
+	"payloadType": "json",
+	"repeat": "",
+	"crontab": "",
+	"once": false,
+	"x": 120,
+	"y": 1560,
+	"wires": [
+		["ccfe462a.d046e8"]
+	]
+}, {
+	"id": "bbce3d33.60d17",
+	"type": "inject",
+	"z": "f7486820.464d08",
+	"name": "set office_lamp on",
+	"topic": "setValue",
+	"payload": "{\"name\": \"office_lamp\", \"characteristic\":\"On\", \"value\": true}",
+	"payloadType": "json",
+	"repeat": "",
+	"crontab": "",
+	"once": false,
+	"x": 130,
+	"y": 1600,
+	"wires": [
+		["ccfe462a.d046e8"]
+	]
+}, {
+	"id": "56a55d8a.f8cc64",
+	"type": "inject",
+	"z": "f7486820.464d08",
+	"name": "set office_lamp off",
+	"topic": "setValue",
+	"payload": "{\"name\": \"office_lamp\", \"characteristic\":\"On\", \"value\": false}",
+	"payloadType": "json",
+	"repeat": "",
+	"crontab": "",
+	"once": false,
+	"x": 130,
+	"y": 1640,
+	"wires": [
+		["ccfe462a.d046e8"]
+	]
+}, {
+	"id": "e218516d.d093e",
+	"type": "comment",
+	"z": "f7486820.464d08",
+	"name": "websocket input",
+	"info": "",
+	"x": 100,
+	"y": 1400,
+	"wires": []
+}, {
+	"id": "444828df.fae8d8",
+	"type": "comment",
+	"z": "f7486820.464d08",
+	"name": "websocket output",
+	"info": "",
+	"x": 490,
+	"y": 1520,
+	"wires": []
+}, {
+	"id": "1a51d2eb.95241d",
+	"type": "comment",
+	"z": "f7486820.464d08",
+	"name": "display message",
+	"info": "",
+	"x": 480,
+	"y": 1400,
+	"wires": []
+}]
