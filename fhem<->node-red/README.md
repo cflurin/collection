@@ -17,6 +17,13 @@ attr hello_button setList on off
 attr hello_button userReadings http {http_request("hello_button", "On", ReadingsVal("hello_button","state","") =~/^on/?1:0)}
 ```
 
+Set a trigger `http:temperature.*` to process the specific Reading once, e.g.:
+
+```
+define temp_office EnOcean 0082CF95
+attr temp_office userReadings http:temperature.* {http_request("temp_office", "CurrentTemperature", ReadingsVal("temp_office","temperature",""))}
+```
+
 When the device is triggered node-red will receive a JSON string:
 
 ```sh
