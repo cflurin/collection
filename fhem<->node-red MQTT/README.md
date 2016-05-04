@@ -19,9 +19,10 @@ attr mqtt_hello_button stateFormat transmission-state
 attr mqtt_hello_button subscribeSet fhem/hello_button/set
 ```
 
-The connection to mosquitto shoulf be active.
+The connection to mosquitto should be active.
 
 **node-red flow**
 
-Import the [example-flow](https://github.com/cflurin/collection/blob/master/fhem%3C-%3Enode-red/example-flow.json) into node-red.
+Import the [example-flow](https://github.com/cflurin/collection/blob/master/fhem%3C-%3Enode-red%20MQTT/example-flow.json) into node-red.
 
+![mqtt](https://cloud.githubusercontent.com/assets/5056710/15010186/1ecc04ea-11eb-11e6-94e9-b9663c621cbc.png)
