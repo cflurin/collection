@@ -1,0 +1,88 @@
+[{
+	"id": "f06db691.c5f278",
+	"type": "mqtt-broker",
+	"z": "a0edf1c2.5bded",
+	"broker": "192.168.0.33",
+	"port": "1883",
+	"clientid": "",
+	"usetls": false,
+	"verifyservercert": true,
+	"compatmode": true,
+	"keepalive": "60",
+	"cleansession": true,
+	"willTopic": "",
+	"willQos": "0",
+	"willRetain": null,
+	"willPayload": "",
+	"birthTopic": "",
+	"birthQos": "0",
+	"birthRetain": null,
+	"birthPayload": ""
+}, {
+	"id": "1585911a.2f0cbf",
+	"type": "debug",
+	"z": "a0edf1c2.5bded",
+	"name": "",
+	"active": true,
+	"console": "false",
+	"complete": "payload",
+	"x": 530,
+	"y": 1980,
+	"wires": []
+}, {
+	"id": "cd202dc1.9ade8",
+	"type": "mqtt in",
+	"z": "a0edf1c2.5bded",
+	"name": "",
+	"topic": "fhem/hello_button",
+	"broker": "f06db691.c5f278",
+	"x": 150,
+	"y": 1980,
+	"wires": [
+		["1585911a.2f0cbf"]
+	]
+}, {
+	"id": "e3e3f54b.49da48",
+	"type": "mqtt out",
+	"z": "a0edf1c2.5bded",
+	"name": "fhem/hello_button",
+	"topic": "",
+	"qos": "",
+	"retain": "",
+	"broker": "f06db691.c5f278",
+	"x": 550,
+	"y": 2080,
+	"wires": []
+}, {
+	"id": "f519f0ee.ca63",
+	"type": "inject",
+	"z": "a0edf1c2.5bded",
+	"name": "",
+	"topic": "fhem/hello_button/set",
+	"payload": "on",
+	"payloadType": "str",
+	"repeat": "",
+	"crontab": "",
+	"once": false,
+	"x": 190,
+	"y": 2060,
+	"wires": [
+		["e3e3f54b.49da48"]
+	]
+}, {
+	"id": "bdf4e34b.974c2",
+	"type": "inject",
+	"z": "a0edf1c2.5bded",
+	"name": "",
+	"topic": "fhem/hello_button/set",
+	"payload": "off",
+	"payloadType": "str",
+	"repeat": "",
+	"crontab": "",
+	"once": false,
+	"x": 190,
+	"y": 2100,
+	"wires": [
+		["e3e3f54b.49da48"]
+	]
+}]
