@@ -1,6 +1,6 @@
 # fhem<->node-red
 
-The example-flow demostrates a bit-directional communication between node-red and fhem:
+The example-flow demostrates a bi-directional communication between node-red and fhem:
 
 * set or get `Readings` inside node-red.
 * receiving `Readings` from fhem.
