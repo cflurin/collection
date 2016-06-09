@@ -41,7 +41,7 @@ and add this line:
 Environment="NODE_RED_OPTIONS=--userDir /home/pi/.node-red"
 ```
 
-befor `ExecStart=/usr/bin/env node-red-pi $NODE_OPTIONS $NODE_RED_OPTIONS`
+before `ExecStart=/usr/bin/env node-red-pi $NODE_OPTIONS $NODE_RED_OPTIONS`
 
 Save nodered.service and run:
 
