@@ -2,6 +2,7 @@
 
 **Install the `bcm2835 library`**
 
+```sh
 wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.50.tar.gz
 tar zxvf bcm2835-1.50.tar.gz
 cd bcm2835-1.50
@@ -9,12 +10,12 @@ cd bcm2835-1.50
 make
 sudo make check
 sudo make install
+```
 
 **Install node-red-contrib-dht-sensor**
 
 ```sh
 cd .node-red
-
 npm install node-red-contrib-dht-sensor
 ```
 
@@ -40,10 +41,10 @@ and add this line:
 Environment="NODE_RED_OPTIONS=--userDir /home/pi/.node-red"
 ```
 
-`ExecStart=/usr/bin/env node-red-pi $NODE_OPTIONS $NODE_RED_OPTIONS`
+befor `ExecStart=/usr/bin/env node-red-pi $NODE_OPTIONS $NODE_RED_OPTIONS`
 
-Save the nodered.service
-and run
+Save nodered.service and run:
+
 ```sh
 sudo systemctl daemon-reload
 ```
