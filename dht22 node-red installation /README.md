@@ -19,7 +19,7 @@ cd .node-red
 npm install node-red-contrib-dht-sensor
 ```
 
-I had to install the node-dht-sensor dependencies in the `.node-red/node_module/node-dht_sensor` directory:
+I had to install the node-dht-sensor dependencies in the `.node-red/node_modules/node-dht_sensor` directory:
 
 ```sh
 cd .node-red/node_modules/node-dht-sensor
