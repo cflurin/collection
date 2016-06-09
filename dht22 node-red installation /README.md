@@ -1,6 +1,6 @@
 # How to install node-red-contrib-dht-sensor and configure node-red
 
-1. Install installing the `bcm2835 library`
+**Install the `bcm2835 library`**
 
 wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.50.tar.gz
 tar zxvf bcm2835-1.50.tar.gz
@@ -10,16 +10,22 @@ make
 sudo make check
 sudo make install
 
-2. install node-red-contrib-dht-sensor
+**Install node-red-contrib-dht-sensor**
 
+```sh
 cd .node-red
-npm install node-red-contrib-dht-sensor
 
-I had to install the node-dht-sensor in directory (I've to investigate ...)
+npm install node-red-contrib-dht-sensor
+```
+
+I had to install the node-dht-sensor dependencies in there directory:
+
+```sh
 cd .node-red/node_modules/node-dht-sensor
 npm install
+```
 
-3. Configure `/lib/systemd/system/nodered.service`
+**Configure `/lib/systemd/system/nodered.service`**
 
 Since node-dht-sensor requires accesss to low-level parts of the Raspberry Pi, you must run Node-RED as root.
 
@@ -42,7 +48,7 @@ and run
 sudo systemctl daemon-reload
 ```
 
-Start Node-RED
+**Start Node-RED:**
 
 ```sh
 node-red-start
