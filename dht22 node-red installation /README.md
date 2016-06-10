@@ -19,13 +19,6 @@ cd .node-red
 npm install node-red-contrib-dht-sensor
 ```
 
-I had to install the node-dht-sensor dependencies in the `.node-red/node_modules/node-dht_sensor` directory:
-
-```sh
-cd .node-red/node_modules/node-dht-sensor
-npm install
-```
-
 **Configure `/lib/systemd/system/nodered.service`**
 
 Since node-dht-sensor requires access to low-level parts of the Raspberry Pi, you must run Node-RED as root.
