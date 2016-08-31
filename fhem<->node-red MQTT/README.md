@@ -1,6 +1,6 @@
 # fhem<->node-red MQTT
 
-The example-flow demostrates a bi-directional communication between node-red and fhem via MQTT:
+The example-flow demonstrates a bi-directional communication between node-red and fhem via MQTT:
 
 **Connect fhem with MQTT**
 

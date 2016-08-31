@@ -1,6 +1,6 @@
 # fhem<->node-red
 
-The example-flow demostrates a bi-directional communication between node-red and fhem:
+The example-flow demonstrates a bi-directional communication between node-red and fhem:
 
 * set or get `Readings` inside node-red.
 * receiving `Readings` from fhem.
@@ -71,3 +71,5 @@ return r_msg;
 ```
 
 Replace `127.0.0.1` with your `fhem-ip-address`.
+
+For more examples take a look at the [Wiki](https://github.com/cflurin/homebridge-mqtt/wiki)
