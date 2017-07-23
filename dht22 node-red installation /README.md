@@ -1,3 +1,5 @@
+# obsolete using bcm2835-1.52
+
 # How to install node-red-contrib-dht-sensor and configure node-red
 
 **Install the `bcm2835 library`**
